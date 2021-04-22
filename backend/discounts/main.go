@@ -25,7 +25,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
-	pb "github.com/fraifelipe/hash-challenge/shared/protos/dist-proto/hello"
+	pb "github.com/fraifelipe/hash-challenge/backend/discounts/protos/hello"
 )
 
 const (

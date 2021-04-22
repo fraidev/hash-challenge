@@ -11,7 +11,8 @@
     "test": "jest",
     "dev": "nodemon src/index.ts",
     "build:proto1": "sh GENERATE.sh",
-    "build:proto": "node scripts/proto.js",
+    "build:proto2": "node scripts/proto.js",
+    "build:proto": "node proto.js",
     "watch": "nodemon -e ts -w ./src -x npm run watch:serve",
     "watch:serve": "ts-node --watch src/index.ts"
   },

@@ -1,6 +1,6 @@
 // var PROTO_PATH = __dirname + '/../../../shared/protos/gerated/';
-import { GreeterClient } from '../dist-proto/hello_grpc_pb'
-import { HelloRequest } from '../dist-proto/hello_pb'
+import { GreeterClient } from '../protos/hello_grpc_pb'
+import { HelloRequest } from '../protos/hello_pb'
 import { credentials, ServiceError } from '@grpc/grpc-js';
 
 
