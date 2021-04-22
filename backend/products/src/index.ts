@@ -25,16 +25,13 @@ async function main() {
     // } else {
     //     target = 'localhost:50051';
     // }
-    const client: GreeterClient = new GreeterClient('localhost:50051', credentials.createInsecure());
-
-    // const sayHello: HelloResponse = await clientService.sayHello();
-    // var cliente = new GreeterClient('localhost:50051', credentials.createInsecure());
-    //     var request = new HelloRequest();
-    //     var user = 'world';
-    //     request.setName(user);
-    //     client.sayHello(request, function (err: any, response: { getMessage: () => any; }) {
-    //         console.log('Greeting:', response.getMessage());
-    // });
+    var client = new GreeterClient('localhost:50051', credentials.createInsecure());
+    var request = new HelloRequest();
+    var user = 'world';
+    request.setName(user);
+    client.sayHello(request, function (err: any, response: { getMessage: () => any; }) {
+        console.log('Greeting:', response.getMessage());
+    });
 
 
     // client.sayHello(param, (err, res) => {
