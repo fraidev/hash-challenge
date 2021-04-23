@@ -1,0 +1,11 @@
+version: "3"
+services:
+  hash-db:
+    image: postgres
+    environment:
+      POSTGRES_DB: hash
+      POSTGRES_PASSWORD: YOUR_PASSWORD_HERE
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
