@@ -13,13 +13,21 @@ const (
 	port = ":50051"
 )
 
-// server is used to implement helloworld.GreeterServer.
 type server struct {
-	pb.UnimplementedDiscountServiceServer
+	pb.DiscountServiceServer
 }
 
 func (s *server) GetDiscount(ctx context.Context, in *pb.DiscountRequest) (*pb.DiscountReply, error) {
 	log.Printf("Received UserId: %v", in.GetUserId())
+
+	
+
+	// pg := pg.Connect(&pg.Options{
+	// 	Addr:     app.config.DBAddr,
+	// 	User:     app.config.DBUser,
+	// 	Password: app.config.DBPassword,
+	// 	Database: app.config.DBName,
+	// })
 
 	var products []*pb.ProductDiscount
 
