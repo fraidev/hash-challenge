@@ -2,17 +2,17 @@ DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
   id UUID NOT NULL PRIMARY KEY,
-  price int NOT NULL,
+  price_in_cents int NOT NULL,
   title varchar(100) NOT NULL,
   description varchar(255) DEFAULT NULL
 );
 
-INSERT INTO products (id, price, title, description)
+INSERT INTO products (id, price_in_cents, title, description)
 values 
-	('f0b19f39-b0a8-4b39-a42e-6d83f5cbd4aa', 4700,'Playsation 5','Sony video game'),
-	('827bd2cc-9537-4330-ad2b-40885344b71a', 5000,'Xbox One X','Microsoft video game'),
-	('8bf94cd1-98db-44dd-b82a-ce7af028b677', 2000,'Switch','Nintendo video game'),
-	('3d2d1916-e11c-4b87-a514-97b082632b0b', 5000,'PC','A Personal Computer');
+	('f0b19f39-b0a8-4b39-a42e-6d83f5cbd4aa', 470000,'Playsation 5','Sony video game'),
+	('827bd2cc-9537-4330-ad2b-40885344b71a', 500000,'Xbox One X','Microsoft video game'),
+	('8bf94cd1-98db-44dd-b82a-ce7af028b677', 200000,'Switch','Nintendo video game'),
+	('3d2d1916-e11c-4b87-a514-97b082632b0b', 500000,'PC','A Personal Computer');
 
 
 DROP TABLE IF EXISTS users;
