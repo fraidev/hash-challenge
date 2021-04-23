@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
 import { Discount } from "./Discount";
 
-@Entity('products')
+@Entity('product')
 export class Product {
 
     @PrimaryColumn('uuid')
