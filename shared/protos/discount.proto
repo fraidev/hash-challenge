@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "/discount";
+
+package discount;
+
+service DiscountService {
+    rpc GetDiscount (DiscountRequest) returns (DiscountReply) {}
+}
+
+message DiscountRequest {
+    string user_id = 1;
+    repeated Product products = 2;
+}
+
+message Product {
+    string id = 1;
+}
+
+message DiscountReply {
+    repeated ProductDiscount products = 1;
+}
+
+message ProductDiscount {
+    float percentage = 1;
+    int32 value_in_cents = 2;
+    string product_id = 3;
+}
