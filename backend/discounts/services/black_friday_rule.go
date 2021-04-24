@@ -3,7 +3,7 @@ package services
 type BlackFridayRule struct {
 }
 
-func (_ BlackFridayRule) Validade(ruleEngine *RuleEngine) bool {
+func (_ BlackFridayRule) Validate(ruleEngine *RuleEngine) bool {
 	return IsToday(11, 25)
 }
 

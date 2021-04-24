@@ -1,7 +1,7 @@
 package services
 
 type Rule interface {
-	Validade(ruleEngine *RuleEngine) bool
+	Validate(ruleEngine *RuleEngine) bool
 	ChangePercentage(percentageDiscount float32) float32
 }
 
@@ -20,7 +20,7 @@ func (ruleEngine *RuleEngine) ApppendRule(rule Rule) {
 
 func (ruleEngine *RuleEngine) CalculateDiscount() {
 	for _, rule := range ruleEngine.rules {
-		if rule.Validade(ruleEngine) {
+		if rule.Validate(ruleEngine) {
 			ruleEngine.percentageDiscount = rule.ChangePercentage(ruleEngine.percentageDiscount)
 		}
 	}

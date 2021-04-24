@@ -6,7 +6,7 @@ type BirthDateRule struct {
 	user *models.User
 }
 
-func (birthDateRule BirthDateRule) Validade(ruleEngine *RuleEngine) bool {
+func (birthDateRule BirthDateRule) Validate(ruleEngine *RuleEngine) bool {
 	return IsToday(int(birthDateRule.user.DateOfBirth.Month()), birthDateRule.user.DateOfBirth.Day())
 }
 
