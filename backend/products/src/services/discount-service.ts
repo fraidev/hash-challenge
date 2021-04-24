@@ -6,7 +6,8 @@ type Resolve<T> = (value: T) => void;
 type Reject = (reason?: unknown) => void;
 
 export async function findProductDiscounts(userId: string, productIds: string[]) {
-    const client = new DiscountServiceClient('localhost:50051', credentials.createInsecure());
+    const address = process.env.NODE_ENV === "production" ? "discounts-service" : "localhost"
+    const client = new DiscountServiceClient(address + ':50051', credentials.createInsecure());
 
     const productsRequest = productIds.map(id => new Product().setId(id))
 

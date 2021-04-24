@@ -3,7 +3,7 @@ import { Product } from "../models/Product";
 
 export const TYPEORM_OPTIONS: ConnectionOptions = {
     type: "postgres",
-    host: "localhost",
+    host: process.env.NODE_ENV === "production" ? "hash-db" : "localhost",
     port: 5432,
     username: "postgres",
     password: "YOUR_PASSWORD_HERE",
