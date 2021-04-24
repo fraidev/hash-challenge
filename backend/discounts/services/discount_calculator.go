@@ -7,10 +7,6 @@ import (
 	pb "github.com/fraifelipe/hash-challenge/backend/discounts/protos/discount"
 )
 
-//Rules
-//birth date -> 5%
-//blackfriday -> 10%
-//max discount is 10%
 func CalculateDiscount(product *models.Product, user *models.User) pb.ProductDiscount {
 	var percentageDiscount float32 = 0.0
 
