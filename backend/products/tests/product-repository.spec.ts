@@ -2,8 +2,8 @@ import { createConnection, getConnection, getRepository } from "typeorm";
 import { Product } from "../src/models/Product";
 import { TYPEORM_OPTIONS } from "../src/infrastructure/typeorm-options";
 
-describe('products', () => {
-    it('GET /products', async () => {
+describe('product repository', () => {
+    it('find all products', async () => {
         const db = await createConnection(TYPEORM_OPTIONS);
 
         const products = await db.getRepository(Product).find();
