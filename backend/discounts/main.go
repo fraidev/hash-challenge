@@ -33,16 +33,18 @@ func (s *server) GetDiscount(ctx context.Context, response *grpc_discount.Discou
 	//Find product on database by ids
 	products, err := repositories.NewProductRepository(db).FindProductByIds(productsIds)
 	if err != nil {
-		panic(err)
+		log.Printf(err.Error())
+		return &grpc_discount.DiscountReply{}, nil
 	}
 
 	//Find user on database by user id header
 	user, err := repositories.NewUserRepository(db).FindUserById(db, uuid.FromStringOrNil(userId))
 	if user == nil {
-		panic("User not find")
+		return &grpc_discount.DiscountReply{}, nil
 	}
 	if err != nil {
-		panic(err)
+		log.Printf(err.Error())
+		return &grpc_discount.DiscountReply{}, nil
 	}
 	log.Printf("User name: %v %v User id: %v User birth: %v", user.FirstName, user.LastName, user.ID, user.DateOfBirth)
 
