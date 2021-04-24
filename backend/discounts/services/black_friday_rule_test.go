@@ -5,16 +5,22 @@ import (
 )
 
 func TestBlackFridayRuleChangePercentage(t *testing.T) {
+
+	var testCases = []struct {
+		Input    float32
+		Expected float32
+	}{
+		{0.0, 10.0},
+		{5.0, 15.0},
+		{10.0, 20.0},
+	}
+
 	rule := BlackFridayRule{}
-	if rule.ChangePercentage(3.0) != 13.0 {
-		t.Fatalf("13.0 is expected Percentage")
-	}
 
-	if rule.ChangePercentage(2.0) != 12.0 {
-		t.Fatalf("12.0 is expected Percentage")
-	}
+	for _, testeCase := range testCases {
 
-	if rule.ChangePercentage(1.0) != 11.0 {
-		t.Fatalf("11.0 is expected Percentage")
+		if rule.ChangePercentage(testeCase.Input) != testeCase.Expected {
+			t.Fatalf("%f input expected %f", testeCase.Input, testeCase.Expected)
+		}
 	}
 }
