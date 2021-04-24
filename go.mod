@@ -3,7 +3,6 @@ module github.com/fraifelipe/hash-challenge
 go 1.16
 
 require (
-	github.com/ahmetb/go-linq/v3 v3.2.0 // indirect
 	github.com/go-pg/pg v8.0.7+incompatible
 	github.com/go-pg/pg/v10 v10.9.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
