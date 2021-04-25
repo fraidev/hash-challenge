@@ -1,5 +1,5 @@
 import { DiscountServiceClient } from '../../protos/discount_grpc_pb'
-import { DiscountRequest, Product, DiscountReply } from '../../protos/discount_pb'
+import { DiscountRequest, Product, DiscountReply, ProductDiscount } from '../../protos/discount_pb'
 import { credentials, ServiceError } from '@grpc/grpc-js';
 
 type Resolve<T> = (value: T) => void;
@@ -24,9 +24,9 @@ export async function findProductDiscounts(userId: string, productIds: string[])
         });
     });
 
-    const discounts = res ? res.getProductsList().map(p => p.toObject()) : [];
+    const discounts = res ? res.getProductsList().map((p: ProductDiscount) => p.toObject()) : [];
 
-    discounts.forEach(discount => {
+    discounts.forEach((discount: ProductDiscount.AsObject) => {
         console.log('Product Id:', discount.productId, 'Percentage:', discount.percentage, 'Value In Cents:', discount.valueInCents);
     })
 

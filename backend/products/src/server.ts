@@ -1,5 +1,6 @@
 import express from 'express'
 import { createConnection } from "typeorm";
+import { ProductDiscount } from '../protos/discount_pb';
 import { TYPEORM_OPTIONS } from './infrastructure/typeorm-options';
 import { Product } from "./models/Product";
 import { findProductDiscounts } from './services/discount-service';
@@ -21,7 +22,7 @@ createConnection(TYPEORM_OPTIONS).then(connection => {
         const discounts = await findProductDiscounts(userId, products.map(p => p.id))
 
         const result = products.map(p => {
-            const discountFound = discounts.find(d => d.productId === p.id);
+            const discountFound = discounts.find((d: ProductDiscount.AsObject) => d.productId === p.id);
             if (discountFound){
                 p.setDiscount(discountFound.percentage, discountFound.valueInCents)
             }
