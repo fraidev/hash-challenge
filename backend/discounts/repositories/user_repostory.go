@@ -6,18 +6,18 @@ import (
 	"github.com/satori/go.uuid"
 )
 
-type UserRepotory struct {
+type UserRepository struct {
 	db *pg.DB
 }
 
-func NewUserRepository(db *pg.DB) *UserRepotory {
-	return &UserRepotory{db}
+func NewUserRepository(db *pg.DB) *UserRepository {
+	return &UserRepository{db}
 }
 
-func (userRepo *UserRepotory) FindUserById(db *pg.DB, id uuid.UUID) (*models.User, error) {
+func (userRepository *UserRepository) FindUserById(id uuid.UUID) (*models.User, error) {
 	users := make([]*models.User, 1)
 
-	var err = db.Model(&users).Where("id = (?)", id).Select()
+	var err = userRepository.db.Model(&users).Where("id = (?)", id).Select()
 
 	if err != nil {
 		return nil, err

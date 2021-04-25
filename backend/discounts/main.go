@@ -38,7 +38,7 @@ func (s *server) GetDiscount(ctx context.Context, response *grpc_discount.Discou
 	}
 
 	//Find user on database by user id header
-	user, err := repositories.NewUserRepository(db).FindUserById(db, uuid.FromStringOrNil(userId))
+	user, err := repositories.NewUserRepository(db).FindUserById(uuid.FromStringOrNil(userId))
 	if user == nil {
 		return &grpc_discount.DiscountReply{}, nil
 	}

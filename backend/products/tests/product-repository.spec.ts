@@ -1,4 +1,4 @@
-import { createConnection, getConnection, getRepository } from "typeorm";
+import { createConnection } from "typeorm";
 import { Product } from "../src/models/Product";
 import { TYPEORM_OPTIONS } from "../src/infrastructure/typeorm-options";
 
