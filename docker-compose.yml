@@ -9,14 +9,6 @@ services:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
-  products-service:
-    depends_on:
-      - "hash-db"
-    build:
-      context: .
-      dockerfile: backend/products/Dockerfile
-    ports:
-      - "8080:8080"
   discounts-service:
     environment:
      - APP_ENV=production
@@ -25,3 +17,12 @@ services:
     build:
       context: .
       dockerfile: backend/discounts/Dockerfile
+  products-service:
+    depends_on:
+      - "hash-db"
+      - "discounts-service"
+    build:
+      context: .
+      dockerfile: backend/products/Dockerfile
+    ports:
+      - "8080:8080"
