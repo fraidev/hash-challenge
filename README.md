@@ -16,14 +16,18 @@ The product service has a web service with only one endpoint, the "/product". Th
 
 ## How to execute / Deploy
 
-Runs product service, discount service, postgres database and apply some records in database. Everything inside the Docker.
+### Requirements
+* docker
+* docker-compose
+
+Runs product service, discount service, postgres database and apply some records in database. Everything inside the Dockers containers.
 
 ```sh
 git clone https://github.com/fraifelipe/hash-challenge
 
 cd hash-challenge
 
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 ## How to Test
