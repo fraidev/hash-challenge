@@ -7,7 +7,7 @@ The first microservice is the product service, written with Typescript, using No
 
 The second microservice is the discount service, written with GO Language.
 
-In this monolith we also have a another project, the proto-generator, written with Typescript and NodeJS, that project take the proto file and generate the GRPC interfaces for both services.
+In this monorepo we also have a another project, the proto-generator, written with Typescript and NodeJS, that project take the proto file and generate the GRPC interfaces for both services.
 
 ## Flow
 
